@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string('closed', 100);
             $table->float('latitude', 50);
             $table->float('longitude', 50);
-            $table->string('soup_type', 50);
-            $table->string('noodle_thickness', 50);
             $table->string('call_option', 100);
             $table->string('ticket_system', 50);
             $table->string('comment', 1000);
