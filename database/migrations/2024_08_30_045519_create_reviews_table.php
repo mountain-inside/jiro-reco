@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->float('rating', 10);
+            $table->string('foods', 50);
+            $table->float('rating', 2);
             $table->string('comment', 1000);
+            $table->string('photo_id');
             $table->timestamps();
             $table->softDeletes();
         });
