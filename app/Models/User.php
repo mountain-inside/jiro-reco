@@ -42,4 +42,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+    public function reviews()   
+    {
+        return $this->hasMany(Review::class);  
+    }
+    
+    public function soup()
+    {
+        return $this->belongsTo(Soup::class);
+    }
+    
+    public function noodle()
+    {
+        return $this->belongsTo(Noodle::class);
+    }
 }
