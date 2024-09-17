@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        Schema::create('noodle_thicks', function (Blueprint $table) {
-            $table->id();
-            $table->string('noodle_thick', 20);
-            $table->timestamps();
-            $table->softDeletes();
-            
+        Schema::table('users', function (Blueprint $table) {
+            //
+            $table->foreignId('noodle_id')->nullable()->constrained()->onDelete('cascade');
         });
     }
 
@@ -26,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

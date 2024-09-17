@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        Schema::create('soup_prefs', function (Blueprint $table) {
-            $table->id();
-            $table->string('soup', 20);
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('stores', function (Blueprint $table) {
+            //
+            $table->float('ratind_number', 100)->nullable();
         });
     }
 
@@ -25,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('stores', function (Blueprint $table) {
+            //
+        });
     }
 };

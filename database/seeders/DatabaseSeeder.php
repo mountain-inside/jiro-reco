@@ -18,8 +18,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call(StoreSeeder::class);
+
         $this->call(SoupSeeder::class);
+        $this->call(NoodleSeeder::class);
+        $this->call(StoreSeeder::class);
+        $this->call(ReviewSeeder::class);
         
     }
 }

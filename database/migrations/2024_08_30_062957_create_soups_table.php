@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        //
+        Schema::create('soups', function (Blueprint $table) {
             $table->id();
-            $table->string('foods', 50);
-            $table->double('rating', 4 ,2);
-            $table->string('comment', 1000);
-            $table->string('photo_id')->default("https://res.cloudinary.com/duyuwjhzj/image/upload/v1726124204/samples/breakfast.jpg");
+            $table->string('soup', 50);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        //
     }
 };
