@@ -15,14 +15,20 @@ class SoupSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('soup_prefs')->insert([
+        DB::table('soups')->insert([
             'soup' => '乳化',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
         
-        DB::table('soup_prefs')->insert([
+        DB::table('soups')->insert([
             'soup' => '非乳化',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('soups')->insert([
+            'soup' => '微乳化',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
