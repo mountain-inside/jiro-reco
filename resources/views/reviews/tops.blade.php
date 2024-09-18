@@ -11,7 +11,10 @@
         　Tops
         </x-slot>
         <body>
-            <h1>ラーメンレビュー</h1>
+            <h1>ジロリアン.COM</h1>
+            <h2 class='mypage'>
+                <a href="/users/{{ $user->id }}">マイページ</a>
+            </h2>
             <a href='/reviews/create'>レビューを作成する</a>
             <div class='reviews'>
                 @foreach ($reviews as $review)
