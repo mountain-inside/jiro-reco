@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\StoreController;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +30,13 @@ Route::controller(ReviewController::class)->middleware(['auth'])->group(function
 });
 
 Route::get('/stores/{store}', [StoreController::class,'tops'])->middleware("auth");
+
+Route::controller(UserController::class)->middleware(['auth'])->group(function(){
+    Route::get('/users/{user}' , 'mypage')->name('mypage');
+    Route::put('/users/{user}', 'update')->name('update');
+    Route::get('/users/{user}/edit', 'edit')->name('edit');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
