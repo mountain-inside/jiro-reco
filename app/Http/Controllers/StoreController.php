@@ -12,4 +12,9 @@ class StoreController extends Controller
     {
         return view('stores.tops')->with(['reviews' => $store->getByStore()]);
     }
+    
+    Public function index(Store $store)
+    {
+        return view('stores.index')->with(['stores' =>$store->get()]);
+    }
 }
