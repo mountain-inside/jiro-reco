@@ -17,7 +17,7 @@ class ReviewController extends Controller
     public function tops(Review $review){
         $id = Auth::id();
         $user = User::find($id);
-        return view('reviews.tops')->with(['reviews' => $review->getPaginateByLimit()])->with(['user' => $user]);
+        return view('reviews.tops')->with(['reviews' => $review->getPaginateByLimit(), 'user' => $user]);
     }
     
     public function show(Review $review){
