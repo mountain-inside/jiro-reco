@@ -8,22 +8,35 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1 class="name">
-            {{ $user->foods }}
+        <h1 class="title">
+            マイページ
         </h1>
-        <div class="content">
-            <div class="content__post">
-                <h3>{{ $review->rating }}</h3>
-                <h4>レビュー</h4>
-                <p>{{ $review->comment }}</p>  
-                <a href="/stores/{{ $review->store->id }}">{{ $review->store->name }}</a>
-            </div>
-            <div>
-                <img src="{{ $review->photo_id }}" alt="画像が読み込めません。">
-            </div>
+        <div>
+            <img src="{{ $user->icon_id }}" alt="画像が読み込めません。" width="60px">
         </div>
+        <h1 class="name">
+            ユーザー名
+            {{ $user->name }}
+        </h1>
+        <h1 class="email">
+            Eメール
+            {{ $user->email }}
+        </h1>
+        <h1 class="soup">
+            スープの好み
+            {{ $user->soup->soup}}
+        </h1>
+        <h1 class="noodle">
+            麺の太さ
+            {{ $user->noodle->noodle}}
+        </h1>
+        <h1 class="home">
+            ホーム
+            {{ $user->store->name}}
+        </h1>
+        
         <div class="edit">
-            <a href="/reviews/{{ $review->id }}/edit">編集</a>
+            <a href="/users/{{ $user->id }}/edit">編集</a>
         </div>
         <div class="footer">
             <a href="/">戻る</a>

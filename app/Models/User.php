@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Soup;
+use App\Models\Noodle;
+use App\Models\Review;
+use App\Models\Store;
 
 class User extends Authenticatable
 {
@@ -21,6 +25,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'soup_id',
+        'noodle_id',
+        'store_id',
     ];
 
     /**
@@ -56,5 +63,10 @@ class User extends Authenticatable
     public function noodle()
     {
         return $this->belongsTo(Noodle::class);
+    }
+    
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
     }
 }

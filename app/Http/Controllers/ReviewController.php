@@ -7,12 +7,17 @@ use App\Models\Review;
 use App\Http\Requests\ReviewRequest;
 use Cloudinary;
 use App\Models\Store;
+use App\models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
     //
     public function tops(Review $review){
-        return view('reviews.tops')->with(['reviews' => $review->getPaginateByLimit()]);
+        $id = Auth::id();
+        $user = User::find($id);
+        return view('reviews.tops')->with(['reviews' => $review->getPaginateByLimit()])->with(['user' => $user]);
     }
     
     public function show(Review $review){
