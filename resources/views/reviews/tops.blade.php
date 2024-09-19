@@ -24,7 +24,7 @@
                     </h2>
                     <p class='rating'>{{ $review->rating }}</p>
                     <p class='comment'>{{ $review->comment}}</p>
-                    <a href="/stores/{{ $review->store->id }}">{{ $review->store->name }}</a>
+                    <a href="/reviews/stores/{{ $review->store->id }}">{{ $review->store->name }}</a>
                 </div>
                 <form action="/reviews/{{ $review->id }}" id="form_{{ $review->id }}" method="post">
                     @csrf

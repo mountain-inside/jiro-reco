@@ -29,7 +29,10 @@ Route::controller(ReviewController::class)->middleware(['auth'])->group(function
     Route::get('/reviews/{review}/edit', 'edit')->name('edit');
 });
 
-Route::get('/stores/{store}', [StoreController::class,'tops'])->middleware("auth");
+Route::controller(StoreController::class)->middleware(['auth'])->group(function(){
+    Route::get('/reviews/stores/{store}', 'tops')->name('top');
+    Route::get('/stores', 'index')->name('index');
+});
 
 Route::controller(UserController::class)->middleware(['auth'])->group(function(){
     Route::get('/users/{user}' , 'mypage')->name('mypage');
