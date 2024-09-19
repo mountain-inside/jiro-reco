@@ -12,7 +12,7 @@
             マイページ
         </h1>
         <div>
-            <img src="{{ $user->icon_id }}" alt="画像が読み込めません。">
+            <img src="{{ $user->icon_id }}" alt="画像が読み込めません。" width="60px">
         </div>
         <h1 class="name">
             ユーザー名
@@ -34,10 +34,7 @@
             ホーム
             {{ $user->store->name}}
         </h1>
-        <div>
-            <img src="{{ $user->icon_id }}" alt="画像が読み込めません。">
-        </div>
-        </div>
+        
         <div class="edit">
             <a href="/users/{{ $user->id }}/edit">編集</a>
         </div>
