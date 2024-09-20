@@ -32,6 +32,7 @@ Route::controller(ReviewController::class)->middleware(['auth'])->group(function
 Route::controller(StoreController::class)->middleware(['auth'])->group(function(){
     Route::get('/reviews/stores/{store}', 'tops')->name('top');
     Route::get('/stores', 'index')->name('index');
+    Route::get('/stores/{store}', 'jiro')->name('jiro');
 });
 
 Route::controller(UserController::class)->middleware(['auth'])->group(function(){
