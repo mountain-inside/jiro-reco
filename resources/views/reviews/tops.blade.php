@@ -15,13 +15,16 @@
             <h2 class='mypage'>
                 <a href="/users/{{ $user->id }}">マイページ</a>
             </h2>
+            <h2 class='jiro'>
+                <a href="/stores">二郎の店舗を好みから検索する</a>
+            </h2>
             <a href='/reviews/create'>レビューを作成する</a>
             <div class='reviews'>
                 @foreach ($reviews as $review)
                 <div class='review'>
-                    <h2 class='foods'>
+                    <h3 class='foods'>
                         <a href="/reviews/{{ $review->id }}">{{ $review->foods }}</a>
-                    </h2>
+                    </h3>
                     <p class='rating'>{{ $review->rating }}</p>
                     <p class='comment'>{{ $review->comment}}</p>
                     <a href="/reviews/stores/{{ $review->store->id }}">{{ $review->store->name }}</a>
