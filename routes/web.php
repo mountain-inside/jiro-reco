@@ -31,11 +31,14 @@ Route::controller(ReviewController::class)->middleware(['auth'])->group(function
 
 Route::controller(StoreController::class)->middleware(['auth'])->group(function(){
     Route::get('/reviews/stores/{store}', 'tops')->name('top');
+    Route::post('/search', 'search')->name('search');
+    Route::get('/search', 'paginate');
     Route::get('/stores', 'index')->name('index');
     Route::get('/stores/{store}', 'jiro')->name('jiro');
 });
 
 Route::controller(UserController::class)->middleware(['auth'])->group(function(){
+    Route::get('/users/stamps' ,'stamp')->name('stamp');
     Route::get('/users/{user}' , 'mypage')->name('mypage');
     Route::put('/users/{user}', 'update')->name('update');
     Route::get('/users/{user}/edit', 'edit')->name('edit');
