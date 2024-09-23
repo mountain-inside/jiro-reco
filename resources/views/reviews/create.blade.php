@@ -24,7 +24,7 @@
                 </div>
                 <div class="rating">
                     <h2>評価(100点満点)</h2>
-                    <input type="text" name="review[rating]" placeholder="100"/>
+                    <input type="number" name="review[rating]" placeholder="100"/>
                     <p class="rating__error" style="color:red">{{ $errors->first('review.rating') }}</p>
                 </div>
                 <div class="image">
