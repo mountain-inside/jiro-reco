@@ -38,6 +38,9 @@
                 ホーム
                 {{ $user->store->name}}
             </h1>
+            <div class="stamps">
+                <a href="/users/stamps">スタンプラリー</a>
+            </div>
             
             <div class="edit">
                 <a href="/users/{{ $user->id }}/edit">編集</a>
