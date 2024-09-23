@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
-            $table->date('visit_date');
+            $table->dateTime('visit_date');
             $table->timestamps();
             $table->softDeletes();
         });
