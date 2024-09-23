@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
+        Schema::table('stamps', function (Blueprint $table) {
             //
-            $table->float('ratind_number', 100)->nullable();
+            $table->foreignId('store_id')->nullable()->constrained()->onDelete('cascade'); 
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
+        Schema::table('stamps', function (Blueprint $table) {
             //
         });
     }

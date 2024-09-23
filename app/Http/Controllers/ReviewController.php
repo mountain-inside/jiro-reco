@@ -17,7 +17,7 @@ class ReviewController extends Controller
     public function tops(Review $review){
         $id = Auth::id();
         $user = User::find($id);
-        return view('reviews.tops')->with(['reviews' => $review->getPaginateByLimit()])->with(['user' => $user]);
+        return view('reviews.tops')->with(['reviews' => $review->getPaginateByLimit(), 'user' => $user]);
     }
     
     public function show(Review $review){
@@ -31,11 +31,21 @@ class ReviewController extends Controller
     
     public function store(ReviewRequest $request, Review $review)
     {
+        //dump($request);
+        //dd($review);
+        $user_id = Auth::id();
         $input = $request['review'];
+        //dump($input);
+        $store = Store::where('id', $input['store_id'])->first();
+        //dd($store);
+        $store->rating_total += $input['rating'];
+        $store->rating_count += 1;
+        $store->save();
         //cloudinaryへ画像を送信し、画像のURLを$image_urlに代入している
-        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $photo_id = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
         //dd($image_url);
         $input += ['photo_id' => $photo_id];
+        $input += ['user_id' => $user_id];
         $review->fill($input)->save();
         return redirect('/reviews/' . $review->id);
     }

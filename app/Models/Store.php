@@ -29,4 +29,10 @@ class Store extends Model
         return $this->reviews()->with('store')->orderBy('updated_at', 'DESC')->paginate($limit_count);
         
     }
+    
+    public function getPagiByLimit(int $limit_count = 10)
+    {
+        // updated_atで降順に並べたあと、limitで件数制限をかける
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
 }

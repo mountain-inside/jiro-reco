@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->string('foods', 50);
-            $table->double('rating', 4 ,2);
+            $table->integer('rating');
             $table->string('comment', 1000);
             $table->string('photo_id')->default("https://res.cloudinary.com/duyuwjhzj/image/upload/v1726124204/samples/breakfast.jpg");
             $table->timestamps();

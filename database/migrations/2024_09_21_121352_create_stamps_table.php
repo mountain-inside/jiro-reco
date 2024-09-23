@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
-            //
-            $table->float('rating_total',100)->nullable();
+        Schema::create('stamps', function (Blueprint $table) {
+            $table->id();
+            $table->integer('stamp_count');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -22,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('stamps');
     }
 };

@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('tops')" :active="request()->routeIs('tops')">
                         {{ __('Tops') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
+                        {{ __('二郎検索') }}
+                    </x-nav-link>
                 </div>
             </div>
 

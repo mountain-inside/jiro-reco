@@ -24,8 +24,9 @@ class ReviewRequest extends FormRequest
         return [
             //
             'review.foods' => 'required|string|max:50',
-            'review.rating' => 'required|float|max:2',
+            'review.rating' => 'required|integer',
             'review.comment' => 'required|string|max:1000',
+            'image' => 'required|file|image',
         ];
     }
 }
