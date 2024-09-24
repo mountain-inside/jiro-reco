@@ -55,6 +55,11 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);  
     }
     
+    public function stamps()   
+    {
+        return $this->hasMany(Stamp::class);  
+    }
+    
     public function soup()
     {
         return $this->belongsTo(Soup::class);
@@ -69,4 +74,6 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Store::class);
     }
+    
+    
 }
