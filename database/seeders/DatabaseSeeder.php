@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SoupSeeder::class);
         $this->call(NoodleSeeder::class);
         $this->call(StoreSeeder::class);
+        $this->call(UserSeeder::class);
         $this->call(ReviewSeeder::class);
         
     }

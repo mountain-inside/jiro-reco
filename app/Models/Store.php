@@ -14,6 +14,11 @@ class Store extends Model
         return $this->hasMany(Review::class);  
     }
     
+    public function stamps()   
+    {
+        return $this->hasMany(Stamp::class);  
+    }
+    
     public function soup()
     {
         return $this->belongsTo(Soup::class);
