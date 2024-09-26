@@ -17,7 +17,7 @@
             </h1>
             <div class="store">
                 <div class="store__info">
-                    <h2 class="rating">評価平均　{{ $store->rating_total/$store->rating_count}}</h2>
+                    <h2 class="rating">評価平均　{{ $store->rating_total/ ($store->rating_count - 1)}}</h2>
                     <h3 class="adress">住所 {{ $store->adress}}</h3>
                     <p class="opening_hours">営業時間 {{ $store->opening_hours }}</p>
                     <p class="closed">定休日 {{ $store->closed}}</p>
