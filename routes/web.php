@@ -38,7 +38,8 @@ Route::controller(StoreController::class)->middleware(['auth'])->group(function(
 });
 
 Route::controller(UserController::class)->middleware(['auth'])->group(function(){
-    Route::get('/users/stamps' ,'stamp')->name('stamp');
+    Route::get('/stamp' ,'stamp')->name('stamp');
+    Route::post('/stamp' ,'register')->name('register');
     Route::get('/users/{user}' , 'mypage')->name('mypage');
     Route::put('/users/{user}', 'update')->name('update');
     Route::get('/users/{user}/edit', 'edit')->name('edit');
