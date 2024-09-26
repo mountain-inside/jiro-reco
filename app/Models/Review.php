@@ -17,6 +17,7 @@ class Review extends Model
         'comment',
         'photo_id',
         'store_id',
+        'user_id',
     ];
     
     public function getPaginateByLimit(int $limit_count = 10)
