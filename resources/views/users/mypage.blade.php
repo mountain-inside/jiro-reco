@@ -39,7 +39,7 @@
                 {{ $user->store->name}}
             </h1>
             <div class="stamps">
-                <a href="/users/stamps">スタンプラリー</a>
+                <a href="/stamp">スタンプラリー</a>
             </div>
             
             <div class="edit">
