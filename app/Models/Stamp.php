@@ -9,6 +9,12 @@ class Stamp extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'stamp_count',
+        'user_id',
+        'store_id',
+    ];
+    
     public function store()
     {
         return $this->belongsTo(Store::class);
