@@ -22,6 +22,7 @@ class UserRequest extends FormRequest
             //
             'user.name' => 'required|string|max:100',
             'user.email' => 'required|string|max:100',
+            'user.icon_id' => 'required|file|image',
         ];
     }
 }

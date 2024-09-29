@@ -28,6 +28,7 @@ class User extends Authenticatable
         'soup_id',
         'noodle_id',
         'store_id',
+        'icon_id',
     ];
 
     /**

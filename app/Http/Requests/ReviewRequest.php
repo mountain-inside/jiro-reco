@@ -24,7 +24,7 @@ class ReviewRequest extends FormRequest
         return [
             //
             'review.foods' => 'required|string|max:50',
-            'review.rating' => 'required|integer',
+            'review.rating' => 'required|digits_between:1,3',
             'review.comment' => 'required|string|max:1000',
             'image' => 'required|file|image',
         ];

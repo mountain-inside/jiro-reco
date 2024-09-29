@@ -6,31 +6,39 @@
         <title>ジロリアン.COM</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <x-app-layout>
         <x-slot name="header">
-        　ラーメンレビュー
+            <div class="bg-yellow-500 text-black py-4 text-center text-2xl font-bold">
+                ラーメンレビュー
+            </div>
         </x-slot>
-        <body>
-            <h1 class="foods">
+        <body class="bg-yellow-100">
+            <h1 class="text-5xl font-bold text-center text-black my-8">
                 {{ $review->foods }}
             </h1>
-            <div class="content">
-                <div class="content__post">
-                    <h3>{{ $review->rating }}</h3>
-                    <h4>レビュー</h4>
-                    <p>{{ $review->comment }}</p>  
-                    <a href="/stores/{{ $review->store->id }}">{{ $review->store->name }}</a>
+
+            <div class="content max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+                <div class="content__post mb-8">
+                    <h3 class="text-3xl text-yellow-500 font-bold">{{ $review->rating }}</h3>
+                    <h4 class="text-2xl font-semibold text-yellow-600 mt-4">レビュー</h4>
+                    <p class="text-lg text-gray-700 mt-2">{{ $review->comment }}</p>  
+                    <a href="/stores/{{ $review->store->id }}" class="text-yellow-500 hover:underline block mt-4">{{ $review->store->name }}</a>
                 </div>
-                <div>
-                    <img src="{{ $review->photo_id }}" alt="画像が読み込めません。">
+
+                <div class="image">
+                    <img src="{{ $review->photo_id }}" alt="画像が読み込めません。" class="max-w-full h-auto rounded shadow-lg">
                 </div>
             </div>
-            <div class="edit">
-                <a href="/reviews/{{ $review->id }}/edit">編集</a>
+
+            <div class="edit text-center mt-8">
+                <a href="/reviews/{{ $review->id }}/edit" class="bg-yellow-500 text-black px-4 py-2 rounded shadow hover:bg-yellow-600">編集</a>
             </div>
-            <div class="footer">
-                <a href="/">戻る</a>
+
+            <div class="footer text-center mt-4">
+                <a href="/" class="text-yellow-500 hover:underline">戻る</a>
             </div>
         </body>
     </x-app-layout>
