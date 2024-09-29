@@ -220,6 +220,8 @@ class StoreSeeder extends Seeder
             'call_option' => 'ヤサイ・ニンニク・アブラ・カラメ',
             'ticket_system' => '食券後買',
             'comment' => '最近、関内店に匹敵する並びを形成する人気店。コンスタントにさまざまな限定メニューを提供している。',
+            'rating_total' => 89,
+            'rating_count' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
@@ -284,6 +286,8 @@ class StoreSeeder extends Seeder
             'call_option' => 'ヤサイ・ニンニク・アブラ・カラメ',
             'ticket_system' => '食券後買',
             'comment' => '2023年5月オープンの新店舗。キリッと醤油の効いた非乳化スープと極太ワシワシ麺が特徴の店舗',
+            'rating_total' => 97,
+            'rating_count' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
