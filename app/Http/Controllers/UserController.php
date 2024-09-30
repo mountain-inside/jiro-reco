@@ -35,6 +35,8 @@ class UserController extends Controller
         $id = Auth::id();
         $user = User::find($id);
         $input_user = $request['user'];
+        $icon_id = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $input_user += ['icon_id' => $icon_id];
         $user->fill($input_user)->save();
 
         return redirect('/users/' . $user->id);

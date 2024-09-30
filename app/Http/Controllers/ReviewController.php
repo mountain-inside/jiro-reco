@@ -50,16 +50,20 @@ class ReviewController extends Controller
         return redirect('/reviews/' . $review->id);
     }
     
-    public function edit(Review $review)
+    public function edit(Review $review, Store $store)
     {
-        return view('reviews.edit')->with(['review' => $review]);
+        return view('reviews.edit')->with(['review' => $review, 'stores' => $store->get()]);
         
     }
     
     public function update(ReviewRequest $request, Review $review)
     {
         $input_review = $request['review'];
+        $photo_id = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        //dd($image_url);
+        $input_review += ['photo_id' => $photo_id];
         $review->fill($input_review)->save();
+        
         
         return redirect('/reviews/' . $review->id);
     }

@@ -19,13 +19,13 @@
             <div class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg max-w-lg">
                 <h1 class="title text-2xl font-bold text-gray-700 text-center mb-6">編集画面</h1>
                 <div class="profile">
-                    <form action="/users/{{ $user->id }}" method="POST" class="space-y-6">
+                    <form action="/users/{{ $user->id }}" method="POST" class="space-y-6" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         
                         <div class="image">
                             <h2 class="text-lg font-semibold text-gray-700">アイコンを変更する</h2>
-                            <input type="file" name="user[icon_id]" class="mt-2"/>
+                            <input type="file" name="image" value="{{ $user->icon_id }}" class="mt-2"/>
                         </div>
 
                         <!-- 名前 -->
@@ -44,6 +44,7 @@
                         <div class="profile__soup">
                             <h2 class="text-lg font-semibold text-gray-700">スープの好み</h2>
                             <select name="user[soup_id]" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500">
+                                <option value="">現在の設定:{{ $user->soup->soup}}</option>
                                 @foreach($soups as $soup)
                                     <option value="{{ $soup->id }}">{{ $soup->soup }}</option>
                                 @endforeach
@@ -54,6 +55,7 @@
                         <div class="profile__noodle">
                             <h2 class="text-lg font-semibold text-gray-700">麺の太さの好み</h2>
                             <select name="user[noodle_id]" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500">
+                                <option value="">現在の設定:{{ $user->noodle->noodle}}</option>
                                 @foreach($noodles as $noodle)
                                     <option value="{{ $noodle->id }}">{{ $noodle->noodle }}</option>
                                 @endforeach
