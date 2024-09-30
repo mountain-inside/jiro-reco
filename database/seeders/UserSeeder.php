@@ -24,5 +24,13 @@ class UserSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
+        
+        DB::table('users')->insert([
+            'name' => 'Sample2',
+            'email' => 'Sample2@gmail.com',
+            'password' => Hash::make('123456'),
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+        ]);
     }
 }

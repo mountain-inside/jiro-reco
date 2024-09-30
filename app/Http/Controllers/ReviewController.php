@@ -21,7 +21,9 @@ class ReviewController extends Controller
     }
     
     public function show(Review $review){
-        return view('reviews.show')->with(['review' => $review]);
+        $id = Auth::id();
+        $user = User::find($id);
+        return view('reviews.show')->with(['review' => $review, 'user' => $user]);
     }
     
     public function create(Store $store)

@@ -107,7 +107,12 @@
                         </tbody>
                     </table>
                 </div>
-
+                <!-- 戻るボタン -->
+                <div class="footer text-center mt-6">
+                    <a href="/users/{{ $user->id }}" class="text-yellow-500 hover:text-yellow-600 transition duration-300">戻る</a>
+                </div>
+            </div>
+            
             <script>
                 const num = 44;
                 const count = {};
