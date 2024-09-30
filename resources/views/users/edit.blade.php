@@ -44,7 +44,7 @@
                         <div class="profile__soup">
                             <h2 class="text-lg font-semibold text-gray-700">スープの好み</h2>
                             <select name="user[soup_id]" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500">
-                                <option value="">現在の設定:{{ $user->soup->soup}}</option>
+                                <option value="{{ $user->soup_id}}">現在の設定:{{ $user->soup->soup}}</option>
                                 @foreach($soups as $soup)
                                     <option value="{{ $soup->id }}">{{ $soup->soup }}</option>
                                 @endforeach
@@ -55,7 +55,7 @@
                         <div class="profile__noodle">
                             <h2 class="text-lg font-semibold text-gray-700">麺の太さの好み</h2>
                             <select name="user[noodle_id]" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500">
-                                <option value="">現在の設定:{{ $user->noodle->noodle}}</option>
+                                <option value="{{ $user->noodle_id }}">現在の設定:{{ $user->noodle->noodle}}</option>
                                 @foreach($noodles as $noodle)
                                     <option value="{{ $noodle->id }}">{{ $noodle->noodle }}</option>
                                 @endforeach
@@ -66,6 +66,7 @@
                         <div class="profile__home">
                             <h2 class="text-lg font-semibold text-gray-700">ホーム</h2>
                             <select name="user[store_id]" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500">
+                                <option value="{{ $user->store_id }}">現在の設定:{{ $user->store->name}}</option>
                                 @foreach($stores as $store)
                                     <option value="{{ $store->id }}">{{ $store->name }}</option>
                                 @endforeach

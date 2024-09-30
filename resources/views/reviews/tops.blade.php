@@ -38,11 +38,13 @@
                         <a href="/reviews/stores/{{ $review->store->id }}" class="text-black hover:underline">{{ $review->store->name }}</a>
                     </div>
 
+                    @if ($review->user_id == $user->id)
                     <form action="/reviews/{{ $review->id }}" id="form_{{ $review->id }}" method="post" class="my-4">
                         @csrf
                         @method('DELETE')
                         <button type="button" onclick="deleteReview({{ $review->id }})" class="bg-black text-yellow-400 px-4 py-2 rounded hover:bg-gray-800">delete</button>
                     </form>
+                    @endif
                     @endforeach
                 </div>
 

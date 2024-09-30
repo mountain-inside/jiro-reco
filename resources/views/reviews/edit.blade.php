@@ -48,7 +48,7 @@
                         <div class="store">
                             <h2 class="text-lg font-semibold text-gray-700">訪れた店舗</h2>
                             <select name="review[store_id]" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500">
-                                <option value="">{{ $review->store->name }}</option>
+                                <option value="{{ $review->store_id }}">{{ $review->store->name }}</option>
                                 @foreach($stores as $store)
                                     <option value="{{ $store->id }}">{{ $store->name }}</option>
                                 @endforeach
@@ -58,7 +58,7 @@
                         <!-- 写真 -->
                         <div class="image">
                             <h2 class="text-lg font-semibold text-gray-700">写真を変更</h2>
-                            <input type="file" name="image" class="mt-2 block w-full text-gray-700">
+                            <input type="file" name="image" class="mt-2 block w-full text-gray-700" value="{{ $review->photo_id }}">
                             <p class="rating__error text-red-500 text-sm mt-2">{{ $errors->first('review.photo_id') }}</p>
                         </div>
 
