@@ -58,8 +58,10 @@
                         <!-- 写真 -->
                         <div class="image">
                             <h2 class="text-lg font-semibold text-gray-700">写真を変更</h2>
-                            <input type="file" name="image" class="mt-2 block w-full text-gray-700" value="{{ $review->photo_id }}">
-                            <p class="rating__error text-red-500 text-sm mt-2">{{ $errors->first('review.photo_id') }}</p>
+                            <img id="prev-img" src="{{ $review->photo_id }}" alt="画像" style="max-width: 100%; height: auto;">
+                            <img id="new-img-preview" src="" alt="新しい画像プレビュー" style="max-width: 100%; height: auto; display: none;">
+                            <input id="new-img" type="file" name="image" class="mt-2 block w-full text-gray-700" value="{{ $review->photo_id }}">
+                            <input type="hidden" name="existing_image" value="{{ $review->photo_id }}">
                         </div>
 
                         <!-- 保存ボタン -->
@@ -75,5 +77,25 @@
                 </div>
             </div>
         </body>
+        <script>
+            const prevImg = document.getElementById("prev-img");
+            const newImg = document.getElementById("new-img");
+            const newImgPreview = document.getElementById('new-img-preview');
+
+            
+            newImg.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        // プレビュー用のimgタグに読み込んだ画像を表示
+                        newImgPreview.src = e.target.result;
+                        newImgPreview.style.display = 'block'; // プレビューを表示
+                        prevImg.style.display = 'none'; // 元の画像を非表示
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        </script>
     </x-app-layout>
 </html>

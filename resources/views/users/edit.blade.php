@@ -25,7 +25,10 @@
                         
                         <div class="image">
                             <h2 class="text-lg font-semibold text-gray-700">アイコンを変更する</h2>
-                            <input type="file" name="image" value="{{ $user->icon_id }}" class="mt-2"/>
+                            <img id="prev-img" src="{{ $user->icon_id }}" alt="画像" style="max-width: 100%; height: auto;">
+                            <img id="new-img-preview" src="" alt="新しい画像プレビュー" style="max-width: 100%; height: auto; display: none;">
+                            <input id="new-img" type="file" name="image" class="mt-2 block w-full text-gray-700">
+                            <input type="hidden" name="existing_image" value="{{ $user->icon_id }}">
                         </div>
 
                         <!-- 名前 -->
@@ -85,5 +88,25 @@
                 </div>
             </div>
         </body>
+        <script>
+            const prevImg = document.getElementById("prev-img");
+            const newImg = document.getElementById("new-img");
+            const newImgPreview = document.getElementById('new-img-preview');
+
+            
+            newImg.addEventListener('change', function(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        // プレビュー用のimgタグに読み込んだ画像を表示
+                        newImgPreview.src = e.target.result;
+                        newImgPreview.style.display = 'block'; // プレビューを表示
+                        prevImg.style.display = 'none'; // 元の画像を非表示
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        </script>
     </x-app-layout>
 </html>

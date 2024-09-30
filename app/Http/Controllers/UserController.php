@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserEditRequest;
 use App\Models\User;
 use App\Models\Soup;
 use App\Models\Noodle;
@@ -30,13 +31,17 @@ class UserController extends Controller
         return view('users.edit')->with(['user' => $user,'soups' => $soup->get(), 'noodles' => $noodle->get(),'stores' => $store->get()]);
     }
     
-    public function update(UserRequest $request)
+    public function update(UserEditRequest $request)
     {
         $id = Auth::id();
         $user = User::find($id);
         $input_user = $request['user'];
-        $icon_id = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-        $input_user += ['icon_id' => $icon_id];
+        if ($request->hasFile('image')) {
+            $icon_id = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+            $input_user += ['icon_id' => $icon_id];
+        }else{
+            $input_user['icon_id'] = $user->icon_id;
+        }
         $user->fill($input_user)->save();
 
         return redirect('/users/' . $user->id);

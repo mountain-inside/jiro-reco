@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Review;
 use App\Http\Requests\ReviewRequest;
+use App\Http\Requests\RevEditRequest;
 use Cloudinary;
 use App\Models\Store;
 use App\models\User;
@@ -58,15 +59,18 @@ class ReviewController extends Controller
         
     }
     
-    public function update(ReviewRequest $request, Review $review)
+    public function update(RevEditRequest $request, Review $review)
     {
         $input_review = $request['review'];
-        $photo_id = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-        //dd($image_url);
-        $input_review += ['photo_id' => $photo_id];
+        
+        if ($request->hasFile('image')) {
+            $photo_id = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+            //dd($image_url);
+            $input_review += ['photo_id' => $photo_id];
+        }else{
+            $input_review['photo_id'] = $review->photo_id;
+        }
         $review->fill($input_review)->save();
-        
-        
         return redirect('/reviews/' . $review->id);
     }
     
