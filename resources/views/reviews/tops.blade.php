@@ -19,9 +19,11 @@
             <h1 class="text-5xl font-extrabold text-center text-black my-8">ジロリアン.COM</h1>
 
             <div class="max-w-4xl mx-auto p-4 bg-yellow-300 shadow-lg rounded-lg">
+                @if(Auth::user() != null)
                 <h2 class='mypage text-2xl text-black font-semibold'>
-                    <a href="/users/{{ $user->id }}" class="hover:underline">マイページ</a>
+                    <a href="/users/{{ Auth::user()->id }}" class="hover:underline">マイページ</a>
                 </h2>
+                @endif
                 <h2 class='jiro text-2xl text-black font-semibold my-4'>
                     <a href="/stores" class="hover:underline">二郎の店舗を好みから検索する</a>
                 </h2>
@@ -38,7 +40,7 @@
                         <a href="/reviews/stores/{{ $review->store->id }}" class="text-black hover:underline">{{ $review->store->name }}</a>
                     </div>
 
-                    @if ($review->user_id == $user->id)
+                    @if (Auth::user() != null && $review->user_id == Auth::user()->id)
                     <form action="/reviews/{{ $review->id }}" id="form_{{ $review->id }}" method="post" class="my-4">
                         @csrf
                         @method('DELETE')
