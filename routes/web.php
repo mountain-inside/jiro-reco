@@ -15,21 +15,23 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/dashboard', function () {
+/*Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+*/
+Route::get('/', [ReviewController::class, 'tops'])->name('tops');
+Route::get('/reviews/create', [ReviewController::class, 'create'])->name('create');
+Route::get('/reviews/{review}',[ReviewController::class, 'show'])->name('show');
 
 Route::controller(ReviewController::class)->middleware(['auth'])->group(function(){
-    Route::get('/', 'tops')->name('tops');
+    
     Route::post('/reviews', 'store')->name('store');
-    Route::get('/reviews/create', 'create')->name('create');
-    Route::get('/reviews/{review}','show')->name('show');
     Route::put('/reviews/{review}', 'update')->name('update');
     Route::delete('/reviews/{review}', 'delete')->name('delete');
     Route::get('/reviews/{review}/edit', 'edit')->name('edit');
 });
 
-Route::controller(StoreController::class)->middleware(['auth'])->group(function(){
+Route::controller(StoreController::class)->group(function(){
     Route::get('/reviews/stores/{store}', 'tops')->name('top');
     Route::post('/search', 'search')->name('search');
     Route::get('/search', 'paginate');
