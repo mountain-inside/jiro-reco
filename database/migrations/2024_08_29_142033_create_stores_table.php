@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('comment', 1000);
             $table->integer('rating_total')->default(1);
             $table->integer('rating_count')->default(1);
-            $table->string('photo_id')->default('https://res.cloudinary.com/duyuwjhzj/image/upload/v1726124206/cld-sample-4.jpg');
+            $table->string('photo_id')->default('https://res.cloudinary.com/duyuwjhzj/image/upload/v1727690797/sjtl7cfiwnifssdjnfub.jpg');
             $table->timestamps();
             $table->softDeletes();
         });
