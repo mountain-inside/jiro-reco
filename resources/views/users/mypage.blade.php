@@ -20,7 +20,7 @@
                 <h1 class="title text-3xl font-bold text-center text-yellow-600 mb-6">
                     マイページ
                 </h1>
-
+                
                 <div class="text-center mb-6">
                     <img class="inline-block rounded-full border-2 border-yellow-600" src="{{ $user->icon_id }}" alt="画像が読み込めません。" width="80px">
                 </div>
@@ -29,9 +29,11 @@
                     <h2 class="name font-semibold text-gray-700">ユーザー名: <span class="font-normal">{{ $user->name }}</span></h2>
                 </div>
 
+                @if(Auth::user() != null && Auth::user()->id == $user->id)
                 <div class="text-lg mb-4">
                     <h2 class="email font-semibold text-gray-700">Eメール: <span class="font-normal">{{ $user->email }}</span></h2>
                 </div>
+                @endif
 
                 <div class="text-lg mb-4">
                     <h2 class="soup font-semibold text-gray-700">スープの好み: <span class="font-normal">{{ $user->soup->soup }}</span></h2>
@@ -46,16 +48,22 @@
                 </div>
 
                 <div class="text-center mb-6">
+                    <a href="/reviews/users/{{ $user->id }}" class="inline-block bg-yellow-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-yellow-700 transition duration-300">過去のレビューを見る</a>
+                </div>
+                
+                <div class="text-center mb-6">
                     <a href="/stamp" class="inline-block bg-yellow-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-yellow-700 transition duration-300">スタンプラリー</a>
                 </div>
-
+                @if(Auth::user() != null && Auth::user()->id == $user->id)
                 <div class="text-center mb-6">
                     <a href="/users/{{ $user->id }}/edit" class="inline-block bg-yellow-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-yellow-600 transition duration-300">編集</a>
                 </div>
+                @endif
 
                 <div class="text-center">
                     <a href="/" class="text-yellow-600 hover:underline text-lg">戻る</a>
                 </div>
+                
             </div>
         </body>
     </x-app-layout>
