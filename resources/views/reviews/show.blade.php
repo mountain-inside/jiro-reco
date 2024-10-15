@@ -19,10 +19,13 @@
             <h1 class="text-5xl font-bold text-center text-black my-8">
                 {{ $review->foods }}
             </h1>
+            
+            <h2></h2>
 
             <div class="content max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
                 <div class="content__post mb-8">
                     <h3 class="text-3xl text-yellow-500 font-bold">{{ $review->rating }}</h3>
+                    <a href="/users/{{ $review->user->id }}" class="text-black hover:underline">{{ $review->user->name}}</a>
                     <h4 class="text-2xl font-semibold text-yellow-600 mt-4">レビュー</h4>
                     <p class="text-lg text-gray-700 mt-2">{{ $review->comment }}</p>  
                     <a href="/stores/{{ $review->store->id }}" class="text-yellow-500 hover:underline block mt-4">{{ $review->store->name }}</a>

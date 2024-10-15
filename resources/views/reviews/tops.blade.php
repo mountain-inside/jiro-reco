@@ -23,6 +23,12 @@
                 <h2 class='mypage text-2xl text-black font-semibold'>
                     <a href="/users/{{ Auth::user()->id }}" class="hover:underline">マイページ</a>
                 </h2>
+                @else
+                <h2>
+                    <a href="{{ route('login') }}" class="bg-yellow-500 text-black font-bold px-6 py-3 rounded shadow transform scale-150 hover:bg-yellow-600">
+                        ログイン
+                    </a>
+                </h2>
                 @endif
                 <h2 class='jiro text-2xl text-black font-semibold my-4'>
                     <a href="/stores" class="hover:underline">二郎の店舗を好みから検索する</a>
@@ -35,6 +41,7 @@
                         <h3 class='foods text-3xl font-bold text-black'>
                             <a href="/reviews/{{ $review->id }}" class="hover:underline">{{ $review->foods }}</a>
                         </h3>
+                        <a href="/users/{{ $review->user->id }}" class="text-black hover:underline">{{ $review->user->name}}</a>
                         <p class='rating text-xl text-black'>評価: {{ $review->rating }}</p>
                         <p class='comment text-lg text-black my-2'>{{ $review->comment}}</p>
                         <a href="/reviews/stores/{{ $review->store->id }}" class="text-black hover:underline">{{ $review->store->name }}</a>
