@@ -58,6 +58,9 @@
                         <h2 class='name text-2xl font-bold text-yellow-600'>
                             <a href="/stores/{{ $store->id }}" class="hover:underline">{{ $store->name }}</a>
                         </h2>
+                        @if(Auth::user() != null && Auth::user()->store->id == $store->id)
+                        <p class="text-red-500 font-bold border border-red-500 rounded-full px-4 py-2 inline-block">ホーム</p>
+                        @endif
                         <p class='adress text-lg text-gray-700 mt-2'>住所: {{ $store->adress }}</p>
                         <p class='opening_hours text-lg text-gray-700'>営業時間: {{ $store->opening_hours }}</p>
                         <p class='closed text-lg text-gray-700'>定休日: {{ $store->closed }}</p>
