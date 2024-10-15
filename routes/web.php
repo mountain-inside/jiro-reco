@@ -39,10 +39,11 @@ Route::controller(StoreController::class)->group(function(){
     Route::get('/stores/{store}', 'jiro')->name('jiro');
 });
 
+Route::get('/reviews/users/{user}', [UserController::class, 'tops']);
+Route::get('/users/{user}', [UserController::class, 'mypage'])->name('mypage');
 Route::controller(UserController::class)->middleware(['auth'])->group(function(){
     Route::get('/stamp' ,'stamp')->name('stamp');
     Route::post('/stamp' ,'register')->name('register');
-    Route::get('/users/{user}' , 'mypage')->name('mypage');
     Route::put('/users/{user}', 'update')->name('update');
     Route::get('/users/{user}/edit', 'edit')->name('edit');
 });
