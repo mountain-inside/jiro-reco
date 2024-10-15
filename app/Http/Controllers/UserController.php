@@ -10,6 +10,7 @@ use App\Models\Soup;
 use App\Models\Noodle;
 use App\Models\Store;
 use App\Models\Stamp;
+use App\Models\Review;
 use Cloudinary;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -17,10 +18,15 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     //
-    public function mypage()
+    public function tops(User $user)
     {
-        $id = Auth::id();
-        $user = User::find($id);
+        return view('users.tops')->with(['reviews' => $user->getByUser(), 'user' => $user]);
+    }
+    
+    public function mypage(User $user)
+    {
+        //$id = Auth::id();
+        //$user = User::find($id);
         return view('users.mypage')->with(['user' => $user]);
     }
     
