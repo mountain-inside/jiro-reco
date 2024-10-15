@@ -236,8 +236,10 @@ class StoreSeeder extends Seeder
             'soup_id' => 2,
             'noodle_id' => 1,
             'call_option' => 'ヤサイ・ニンニク・アブラ・カラメ',
-            'ticket_system' => '食券後買',
+            'ticket_system' => '食券先買',
             'comment' => '二郎の中でもかなり細めの麺が特徴。スープも甘めでさっぱりしており食べやすい。',
+            'rating_total' => 83,
+            'rating_count' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
@@ -286,8 +288,8 @@ class StoreSeeder extends Seeder
             'call_option' => 'ヤサイ・ニンニク・アブラ・カラメ',
             'ticket_system' => '食券後買',
             'comment' => '2023年5月オープンの新店舗。キリッと醤油の効いた非乳化スープと極太ワシワシ麺が特徴の店舗',
-            'rating_total' => 97,
-            'rating_count' => 1,
+            'rating_total' => 457,
+            'rating_count' => 5,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
@@ -304,6 +306,8 @@ class StoreSeeder extends Seeder
             'call_option' => 'ヤサイ・ニンニク・アブラ・カラメ',
             'ticket_system' => '食券後買',
             'comment' => '1968年創業、ラーメン二郎の本店。「ラーメン二郎」の第一号店舗であり、歴史の草分け的存在。',
+            'rating_total' => 90,
+            'rating_count' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
@@ -482,6 +486,8 @@ class StoreSeeder extends Seeder
             'call_option' => 'ヤサイ・ニンニク',
             'ticket_system' => '食券後買',
             'comment' => '直系二郎の中でもトップレベルの人気を誇る店舗。濃厚な乳化スープと細めの麺、そしてクタ気味な野菜が特徴。',
+            'rating_total' => 93,
+            'rating_count' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);
@@ -626,6 +632,8 @@ class StoreSeeder extends Seeder
             'call_option' => 'ヤサイ・ニンニク・アブラ・カラメ',
             'ticket_system' => '食券後買',
             'comment' => 'チャーシューが厚切りで、全体的にボリューミーな店舗。テーブル席やプチラーメンなどもあり、家族づれや女性客にも優しい店舗。',
+            'rating_total' => 94,
+            'rating_count' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
         ]);

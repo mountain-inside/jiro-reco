@@ -76,5 +76,11 @@ class User extends Authenticatable
         return $this->belongsTo(Store::class);
     }
     
+    public function getByUser(int $limit_count = 5)
+    {
+        return $this->reviews()->with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        
+    }
+    
     
 }

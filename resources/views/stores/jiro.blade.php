@@ -27,6 +27,11 @@
                 <h1 class="name text-4xl font-bold text-center text-yellow-600 mb-6">
                     {{ $store->name }}
                 </h1>
+                @if(Auth::user() != null && Auth::user()->store->id == $store->id)
+                <div class="text-center">
+                    <h2 class="text-red-500 font-bold border border-red-500 rounded-full px-4 py-2 inline-block">ホーム</h2>
+                </div>
+                @endif
                 <div class="store__info bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
                     <div class="rating text-xl font-semibold text-yellow-600">
                         @if($store->rating_count == 0)

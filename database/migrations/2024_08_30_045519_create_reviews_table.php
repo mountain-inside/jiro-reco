@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('foods', 50);
             $table->integer('rating');
             $table->string('comment', 1000);
-            $table->string('photo_id')->default("https://res.cloudinary.com/duyuwjhzj/image/upload/v1726124204/samples/breakfast.jpg");
+            $table->string('photo_id')->default("https://res.cloudinary.com/duyuwjhzj/image/upload/v1728977599/sb_food_jirokei_drdcfm.png");
             $table->timestamps();
             $table->softDeletes();
         });
