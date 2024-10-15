@@ -20,16 +20,16 @@ use App\Http\Controllers\UserController;
 })->middleware(['auth', 'verified'])->name('dashboard');
 */
 Route::get('/', [ReviewController::class, 'tops'])->name('tops');
-Route::get('/reviews/create', [ReviewController::class, 'create'])->name('create');
-Route::get('/reviews/{review}',[ReviewController::class, 'show'])->name('show');
 
 Route::controller(ReviewController::class)->middleware(['auth'])->group(function(){
     
     Route::post('/reviews', 'store')->name('store');
+    Route::get('/reviews/create', 'create')->name('create');
     Route::put('/reviews/{review}', 'update')->name('update');
     Route::delete('/reviews/{review}', 'delete')->name('delete');
     Route::get('/reviews/{review}/edit', 'edit')->name('edit');
 });
+Route::get('/reviews/{review}',[ReviewController::class, 'show'])->name('show');
 
 Route::controller(StoreController::class)->group(function(){
     Route::get('/reviews/stores/{store}', 'tops')->name('top');
