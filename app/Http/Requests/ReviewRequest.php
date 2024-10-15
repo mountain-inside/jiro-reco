@@ -26,7 +26,7 @@ class ReviewRequest extends FormRequest
             'review.foods' => 'required|string|max:50',
             'review.rating' => 'required|digits_between:1,3',
             'review.comment' => 'required|string|max:1000',
-            'image' => 'required|file|image',
+            'image' => 'required|file|mimes:jpg,jpeg,png',
         ];
     }
 }
